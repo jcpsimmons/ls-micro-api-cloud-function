@@ -1,5 +1,5 @@
 # ls-micro-api-cloud-function
-Micro-API for retrieving product data from Firebase. Each folder deploys on a Google Cloud Function. All functions should have "Content-Type" set to "application/json".
+Micro-API for retrieving product data from Firebase. Each folder deploys on a Google Cloud Function. All functions should have "Content-Type" set to "application/json". api_key "xxxxx" should be replaced with your API key.
 
 ---
 
@@ -8,6 +8,7 @@ Micro-API for retrieving product data from Firebase. Each folder deploys on a Go
 **POST** request. Send a SKU, get all associated product data. Request JSON should be formatted as follows:
 ```
 {
+    "api_key": "xxxxx",
     "sku": "246776"
 }
 ```

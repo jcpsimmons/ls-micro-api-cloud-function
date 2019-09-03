@@ -1,12 +1,15 @@
 from google.cloud import firestore
 from datetime import datetime
 import json
+import os
 
 
 def getSkuData(request):
     db = firestore.Client()
     responseDict = {'data': {}}
     request_json = request.get_json()
+    if request_json['api_key'] != os.environ["gcloudAPIKey"]:
+        return('Access Denied')
     if request_json['sku'].find(',') > 0:
         skus = request_json['sku'].split(',')
     else:
