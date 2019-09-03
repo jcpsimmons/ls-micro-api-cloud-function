@@ -3,10 +3,13 @@ import requests
 import json
 import re
 import math
+import os
 
 
 def getSKUsFromPLP(request):
     request_json = request.get_json()
+    if request_json['api_key'] != os.environ["gcloudAPIKey"]:
+        return('Access Denied')
     url = request_json['url']
     if request_json['page']:
         page = request_json['page']

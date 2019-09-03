@@ -27,6 +27,7 @@ or multiple SKUs
 **POST** request. Send PLP URL and page for request, and get back SKUs (up to 5000) that are on the PLP. Request JSON formatting as follows:
 ```
 {
+    "api_key": "xxxxx"
     "url": "https://www.livingspaces.com/departments/rugs/type/area-rugs",
     "page": 1
 }
