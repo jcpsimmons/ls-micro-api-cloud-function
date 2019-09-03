@@ -19,3 +19,25 @@ or multiple SKUs
 ```
 
 ---
+
+## bloomreachSkusonPlp
+
+**ENDPOINT:** https://us-central1-root-catfish-206221.cloudfunctions.net/bloomreach-skus-on-plps 
+**POST** request. Send PLP URL and page for request, and get back SKUs (up to 5000) that are on the PLP. Request JSON formatting as follows:
+```
+{
+    "url": "https://www.livingspaces.com/departments/rugs/type/area-rugs",
+    "page": 1
+}
+```
+**SAMPLE RESPONSE** SKUs truncated for documentation purposes
+```
+{
+    "data": 
+    {
+        "totalPages": 2, 
+        "currentPage": 1, 
+        "skus": ["108064", "110488", "237178", "110487", "110483", "237162", "108374", "94830", "245009"]
+    }
+}
+```

@@ -11,6 +11,8 @@ def getSkuData(request):
         skus = request_json['sku'].split(',')
     else:
         skus = [request_json['sku']]
+    if len(skus) > 1000:
+        skus = skus[:1000]
     for sku in skus:
         try:
             doc = db.collection('ls-restful-api-scrape').document(sku).get()
