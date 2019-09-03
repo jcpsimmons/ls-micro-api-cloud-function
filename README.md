@@ -5,6 +5,8 @@ Micro-API for retrieving product data from Firebase. Each folder deploys on a Go
 
 ## getSkuData
 
+**ENDPOINT:** https://us-east1-root-catfish-206221.cloudfunctions.net/sku-data 
+
 **POST** request. Send a SKU, get all associated product data. Request JSON should be formatted as follows:
 ```
 {
