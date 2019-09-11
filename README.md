@@ -1,27 +1,33 @@
 # ls-micro-api-cloud-function
+
 Micro-API for retrieving product data from Firebase. Each folder deploys on a Google Cloud Function. All functions should have "Content-Type" set to "application/json". api_key "xxxxx" should be replaced with your API key.
 
 ---
 
 ## getSkuData
 
-**ENDPOINT:** https://us-east1-root-catfish-206221.cloudfunctions.net/sku-data 
+**ENDPOINT:** https://us-east1-root-catfish-206221.cloudfunctions.net/sku-data
 
 **POST** request. Send a SKU, get all associated product data. Request JSON should be formatted as follows:
-```
+
+```javascript
 {
     "api_key": "xxxxx",
     "sku": "246776"
 }
 ```
+
 or multiple SKUs
-```
+
+```javascript
 {
     "sku": "246776,100045,241982"
 }
 ```
+
 **SAMPLE RESPONSE** Some fields edited for security reasons
-```
+
+```javascript
 {
   "data": {
     "246776": {
@@ -167,24 +173,52 @@ or multiple SKUs
 
 ## bloomreachSkusonPlp
 
-**ENDPOINT:** https://us-central1-root-catfish-206221.cloudfunctions.net/bloomreach-skus-on-plps 
+**ENDPOINT:** https://us-central1-root-catfish-206221.cloudfunctions.net/bloomreach-skus-on-plps
 
-**POST** request. Send PLP URL and page for request, and get back SKUs (up to 5000) that are on the PLP. Request JSON formatting as follows:
-```
+**POST** request. Send PLP URL and page for request, and get back SKUs that are on the PLP. Request JSON formatting as follows:
+
+```javascript
 {
-    "api_key": "xxxxx"
-    "url": "https://www.livingspaces.com/departments/rugs/type/area-rugs",
-    "page": 1
+    "api_key": "xxxxx",
+    "url": "https://www.livingspaces.com/departments/rugs/type/area-rugs"
 }
 ```
+
 **SAMPLE RESPONSE** SKUs truncated for documentation purposes
-```
+
+```javascript
 {
-    "data": 
+    "data":
     {
-        "totalPages": 2, 
-        "currentPage": 1, 
         "skus": ["108064", "110488", "237178", "110487", "110483", "237162", "108374", "94830", "245009"]
+    }
+}
+```
+
+---
+
+## sendSlackMessage
+
+**ENDPOINT:** https://us-central1-root-catfish-206221.cloudfunctions.net/sendSlackMessage
+
+**POST** request. Send user and message to route to the LS Slack Bot. `'user'` can use a name (right now only have a few set up) OR a Slack User ID:
+
+![getting slack id](images\getSlackUID.png)
+
+```javascript
+{
+    "api_key": "xxxxxx",
+    "user": "josh",
+    "message": "from gcp with love"
+}
+```
+
+**SAMPLE RESPONSE** Some fields edited for security reasons
+
+```javascript
+{
+    "data": {
+        "response": "{'ok': True, 'channel': 'xxxxx', 'ts': '1568228729.002300', 'message': {'type': 'message', 'subtype': 'bot_message', 'text': 'from gcp with love', 'ts': '1568228729.002300', 'username': 'xxxxx', 'bot_id': 'xxxxx'}}"
     }
 }
 ```

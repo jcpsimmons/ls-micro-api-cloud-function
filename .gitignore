@@ -1,2 +1,4 @@
+shutdownComputeInstance/env
 getSkuData/env
 bloomreachSkusonPlp/env
+sendSlackMessage/env
