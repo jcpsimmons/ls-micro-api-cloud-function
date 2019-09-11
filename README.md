@@ -203,7 +203,7 @@ or multiple SKUs
 
 **POST** request. Send user and message to route to the LS Slack Bot. `'user'` can use a name (right now only have a few set up) OR a Slack User ID:
 
-![getting slack id](images\getSlackUID.png)
+![getting slack id](images/getSlackUID.png)
 
 ```javascript
 {
