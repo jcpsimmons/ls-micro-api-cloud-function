@@ -222,3 +222,30 @@ or multiple SKUs
     }
 }
 ```
+
+---
+
+## skuToInriverId
+
+**ENDPOINT:** https://us-central1-root-catfish-206221.cloudfunctions.net/skuToInriverId
+
+**POST** request. Send an array of sku(s) and recieve a dictionary back with key:value pairs of sku:item ID. Returns false if sku is not in database.
+
+```javascript
+{
+	"api_key": "xxxxx",
+	"skus": [246776, 100040, 249512]
+}
+```
+
+**SAMPLE RESPONSE**
+
+```javascript
+{
+    "data": {
+        "246776": "468288",
+        "100040": false,
+        "249512": false
+    }
+}
+```
