@@ -2,10 +2,18 @@
 
 Micro-API for retrieving product data from Firebase. Each folder deploys on a Google Cloud Function. All functions should have "Content-Type" set to "application/json". api_key "xxxxx" should be replaced with your API key.
 
+---
+
+## TABLE OF CONTENTS
+
 [getSkuData](#getSkuData)
+
 [bloomreachSkusonPlp](#bloomreachSkusonPlp)
+
 [sendSlackMessage](#sendSlackMessage)
+
 [skuToInriverId](#skuToInriverId)
+
 
 ---
 
