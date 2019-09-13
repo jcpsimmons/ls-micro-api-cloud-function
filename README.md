@@ -1,4 +1,4 @@
-# ls-micro-api-cloud-function
+# Living Spaces eCommerce API
 
 Micro-API for retrieving product data from Firebase. Each folder deploys on a Google Cloud Function. All functions should have "Content-Type" set to "application/json". api_key "xxxxx" should be replaced with your API key.
 
